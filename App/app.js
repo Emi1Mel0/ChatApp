@@ -10,5 +10,11 @@ function sendMessage(e) {
   input.focus;
 }
 
-document.querySelector('form')
-  .addEventListener('submit', sendMessage);
+document.querySelector("form").addEventListener("submit", sendMessage);
+
+//listen for messages 
+socket.addEventListener("message", ({ data }) => {
+  const li = document.createElement("li");
+  li.textContent = data
+  document.querySelector("ul").appendChild(li);
+});
